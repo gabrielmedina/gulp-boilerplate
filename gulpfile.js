@@ -9,9 +9,10 @@ let gulp            = require('gulp'),
     deploygh        = require('gulp-gh-pages'),
     injectSvg       = require('gulp-inject-svg'),
     include         = require('gulp-include'),
+    clean           = require('gulp-clean'),
     browserSync     = require('browser-sync');
 
-gulp.task('production', function() {
+gulp.task('production', ['clear'], function() {
   gulp
     .src('./dist/**/*')
     .pipe(deploygh({
@@ -20,13 +21,18 @@ gulp.task('production', function() {
     }));
 });
 
-gulp.task('develop', function() {
+gulp.task('develop', ['clear'], function() {
   gulp
     .src('./dist/**/*')
     .pipe(deploygh({
       remoteUrl: 'git@github.com:gabrielmedina/gulp-boilerplate.git',
       branch: 'develop'
     }));
+});
+
+gulp.task('clear', function () {
+  return gulp.src('.publish', {read: false})
+    .pipe(clean());
 });
 
 gulp.task('css', function() {

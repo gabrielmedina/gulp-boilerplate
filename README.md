@@ -14,9 +14,9 @@ bower i
 # gulp
 gulp
 
-# gulp deploy to master
-gulp deploy master
+# gulp deploy to production
+gulp production
 
 # gulp deploy to develop
-gulp deploy develop
+gulp develop
 ```

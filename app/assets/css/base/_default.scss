@@ -1,0 +1,14 @@
+// deafult
+
+body {
+  font-family: 'Raleway', sans-serif;
+  padding: 0;
+}
+
+@mixin mac {
+  .MacIntel,
+  .Mac68K,
+  .MacPPC {
+    @content;
+  }
+}
